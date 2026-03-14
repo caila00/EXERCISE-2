@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Javascript Web Output #2</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#e5e5e5;
+    padding:20px;
+}
+
+.container{
+    background:white;
+    padding:20px;
+    width:600px;
+    border:1px solid #ccc;
+}
+
+label{
+    display:inline-block;
+    width:100px;
+    font-weight:bold;
+}
+
+input {
+    padding: 5px;
+    width: 150px;
+    margin-right: 10px; 
+}
+
+button{
+    margin:3px;
+}
+
+#sortContainer{
+    margin-top:10px;
+}
+
+table{
+    border-collapse:collapse;
+    margin-top:10px;
+    width:100%;
+}
+
+th, td{
+    border:1px solid #aaa;
+    padding:5px;
+    text-align:center;
+}
+
+.no-records{
+    color:red;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Javascript Web Output #2</h2>
+
+<div>
+    
+    <label>First Name:</label>
+    <input type="text" id="fname">
+</div>
+<div>
+    <label>Middle Name:</label>
+    <input type="text" id="mname">
+    </div>
+<div>
+    <label>Last Name:</label>
+    <input type="text" id="lname">
+</div>
+<div>
+    <label>Age:</label>
+    <input type="number" id="age">
+</div>
+
+<div style="margin-top:10px;">
+    <button onclick="insertData()">Insert</button>
+    <button onclick="clearForm()">Clear Form</button>
+</div>
+
+</div>
+
+<div id="recordsSection" style="margin-top:10px;">
+    <fieldset>
+        <legend>Records</legend>
+        <table id="tblRecords">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr>
+                    <td colspan="5" class="no-records">No Records Found</td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</div>
+
+
+<div style="margin-top:10px;">
+    <button id="clearBtn" onclick="clearRecords()" style="display:none;">Clear Records</button>
+    <button id="saveBtn" onclick="saveLocal()" style="display:none;">Save to Local Storage</button>
+    
+    <div id="sortContainer" style="display:none;">
+        Sort by:
+        <select id="sortField" onchange="sortRecords()">
+            <option value="">Please select</option>
+            <option value="fname">First Name</option>
+            <option value="lname">Last Name</option>
+        </select>
+
+        <select id="sortOrder" onchange="sortRecords()">
+            <option value="">Please select</option>
+            <option value="az">A-Z</option>
+            <option value="za">Z-A</option>
+        </select>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
