@@ -1,135 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Javascript Web Output #2</title>
+    <title>Exercise 3</title>
 
-<style>
-body{
-    font-family: Arial;
-    background:#e5e5e5;
-    padding:20px;
-}
+    <style>
+        body {
+            font-family: Arial;
+            background: #e5e5e5;
+            padding: 30px;
+        }
 
-.container{
-    background:white;
-    padding:20px;
-    width:600px;
-    border:1px solid #ccc;
-}
+        .container {
+            background: white;
+            padding: 20px;
+            width: 700px;
+            border: 1px solid #ccc;
+        }
 
-label{
-    display:inline-block;
-    width:100px;
-    font-weight:bold;
-}
+        button {
+            margin: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
 
-input {
-    padding: 5px;
-    width: 150px;
-    margin-right: 10px; 
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
 
-button{
-    margin:3px;
-}
+        table, th, td {
+            border: 1px solid #ccc;
+        }
 
-#sortContainer{
-    margin-top:10px;
-}
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
 
-table{
-    border-collapse:collapse;
-    margin-top:10px;
-    width:100%;
-}
-
-th, td{
-    border:1px solid #aaa;
-    padding:5px;
-    text-align:center;
-}
-
-.no-records{
-    color:red;
-    font-weight:bold;
-}
-</style>
+        th {
+            background: #f2f2f2;
+        }
+    </style>
 </head>
 
 <body>
 
 <div class="container">
+    <h2>Javascript Web Output #3</h2>
 
-<h2>Javascript Web Output #2</h2>
+    <button onclick="loadData()">Load data from the API</button>
+    <button onclick="clearTable()">Clear Table</button>
 
-<div>
-    
-    <label>First Name:</label>
-    <input type="text" id="fname">
-</div>
-<div>
-    <label>Middle Name:</label>
-    <input type="text" id="mname">
-    </div>
-<div>
-    <label>Last Name:</label>
-    <input type="text" id="lname">
-</div>
-<div>
-    <label>Age:</label>
-    <input type="number" id="age">
-</div>
+    <p>
+        API: 
+        <a href="https://jsonplaceholder.typicode.com/todos/" target="_blank">
+            https://jsonplaceholder.typicode.com/todos/
+        </a>
+    </p>
 
-<div style="margin-top:10px;">
-    <button onclick="insertData()">Insert</button>
-    <button onclick="clearForm()">Clear Form</button>
-</div>
-
-</div>
-
-<div id="recordsSection" style="margin-top:10px;">
-    <fieldset>
-        <legend>Records</legend>
-        <table id="tblRecords">
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
-                    <th>Age</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody">
-                <tr>
-                    <td colspan="5" class="no-records">No Records Found</td>
-                </tr>
-            </tbody>
-        </table>
-    </fieldset>
-</div>
-
-
-<div style="margin-top:10px;">
-    <button id="clearBtn" onclick="clearRecords()" style="display:none;">Clear Records</button>
-    <button id="saveBtn" onclick="saveLocal()" style="display:none;">Save to Local Storage</button>
-    
-    <div id="sortContainer" style="display:none;">
-        Sort by:
-        <select id="sortField" onchange="sortRecords()">
-            <option value="">Please select</option>
-            <option value="fname">First Name</option>
-            <option value="lname">Last Name</option>
-        </select>
-
-        <select id="sortOrder" onchange="sortRecords()">
-            <option value="">Please select</option>
-            <option value="az">A-Z</option>
-            <option value="za">Z-A</option>
-        </select>
-    </div>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+           
+        </tbody>
+    </table>
 </div>
 
 <script src="main.js"></script>
+
 </body>
 </html>
